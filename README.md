@@ -57,3 +57,40 @@ Implementar un menú para manipular un objeto de la clase civilización, con las
 [2]: El comportamiento de la clase Civilización será como una administradora de objetos de la clase Aldeano.
 
 [3]: Reutilizar la plantilla (template) de la clase Arreglo desarrollada en el laboratorio para hacer un Arreglo<Aldeano>.
+ 
+ ## Actividad 02 _(Lista Simplemente Ligada)_
+ 
+ Implementar un men ́u para manipular una lista simplemente ligada de apuntadores de objetos de la clase Civilización[4], con las siguientes opciones:
+ 
+1. Agregar civilización a la lista simplemente ligada
+2. Buscar civilización
+3. Eliminar civilización
+4. Mostrar Civilizaciones
+5. Salir
+
+La opción _Agregar civilización a la lista simplemente ligada_ creará un objeto apuntador de la clase Civilización de la siguiente manera:
+
+```c++
+void agregarCivilizacion(Lista<Civilizacion*> &lista)
+{
+    // definicion de variables
+    string nombre;
+    Civilizacion *c = new Civilizacion();
+    cout << "Nombre de la Civilizacion: " << endl;
+    getline(cin, nombre);
+    c->setNombre(nombre);
+    // insertar en la lista el objeto *c
+    lista.insertar_inicio(c);
+}
+```
+
+La opción _Buscar civilización_ pedirá el nombre de una civilización, si la civilización no existe, mostrar un mensaje. Si existe la civilización, mostrar el menú de la actividad 01[5].
+
+La opción _Eliminar civilización_ pedirá el nombre de una civilización y eliminará el nodo de la lista simplemente ligada que corresponda a la civilización con ése nombre.
+
+La opción _Mostrar Civilizaciones_ muestra en pantalla el nombre de la civilización y su población.
+
+[4]: Reutilizar la plantilla de la clase Lista desarrollada en el laboratorio para hacer una Lista<Civilizacion*>
+
+[5]: Agregar Aldeano, Eliminar Aldeano, Población y Resumen.
+ 
