@@ -1,9 +1,10 @@
 #include "menualdeanos.h"
 #include <sstream>
 
-MenuAldeanos::MenuAldeanos()
+MenuAldeanos::MenuAldeanos(Civilizacion *&civilizacion)
 {
-    Civilizacion c;
+//    Civilizacion c;
+    c = civilizacion;
     string op;
 
     while (true) {
@@ -36,17 +37,17 @@ MenuAldeanos::MenuAldeanos()
 
 }
 
-void MenuAldeanos::nombreCivilizacion(Civilizacion &civilizacion)
+void MenuAldeanos::nombreCivilizacion(Civilizacion *&civilizacion)
 {
     string nombre;
 
     cout << "Nombre para la civilizacion: ";
     getline(cin, nombre);
 
-    civilizacion.setNombre(nombre);
+    civilizacion->setNombre(nombre);
 }
 
-void MenuAldeanos::agregarAldeano(Civilizacion &civilizacion)
+void MenuAldeanos::agregarAldeano(Civilizacion *&civilizacion)
 {
     Aldeano aldeano;
     string nombre;
@@ -79,17 +80,17 @@ void MenuAldeanos::agregarAldeano(Civilizacion &civilizacion)
     ss >> salud;
     aldeano.setSalud(salud);
 
-    civilizacion.agregarAldeano(aldeano);
+    civilizacion->agregarAldeano(aldeano);
 }
 
-void MenuAldeanos::eliminarAldeano(Civilizacion &civilizacion)
+void MenuAldeanos::eliminarAldeano(Civilizacion *&civilizacion)
 {
     string nombre;
 
     cout << "Nombre del Aldeano: ";
     getline(cin, nombre);
 
-    if (civilizacion.eliminarAldeano(nombre)) {
+    if (civilizacion->eliminarAldeano(nombre)) {
         cout << "Se eliminó al Aldeano " << nombre << endl;
     }
     else {
@@ -98,13 +99,13 @@ void MenuAldeanos::eliminarAldeano(Civilizacion &civilizacion)
 
 }
 
-void MenuAldeanos::resumen(const Civilizacion &civilizacion)
+void MenuAldeanos::resumen(Civilizacion *&civilizacion)
 {
-    cout << "Civilizacion: " << civilizacion.getNombre() << endl;
-    cout << "Poblacion:    " << civilizacion.poblacion() << " aldeanos" << endl;
+    cout << "Civilizacion: " << civilizacion->getNombre() << endl;
+    cout << "Poblacion:    " << civilizacion->poblacion() << " aldeanos" << endl;
 
-    for (int i = 0; i < civilizacion.poblacion(); ++i) {
-        const Aldeano &aldeano = civilizacion[i];
+    for (int i = 0; i < civilizacion->poblacion(); ++i) {
+        const Aldeano &aldeano = (*civilizacion)[i];
         cout << "Aldeano " << i << " :" << endl;
         cout << "\t" << "Nombre: " << aldeano.getNombre() << endl;
         cout << "\t" << "Edad:   " << aldeano.getEdad() << endl;

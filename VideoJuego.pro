@@ -6,10 +6,13 @@ CONFIG -= qt
 SOURCES += main.cpp \
     aldeano.cpp \
     civilizacion.cpp \
-    menualdeanos.cpp
+    menualdeanos.cpp \
+    menucivilizacion.cpp
 
 HEADERS += \
     aldeano.h \
     arreglo.h \
     civilizacion.h \
-    menualdeanos.h
+    menualdeanos.h \
+    lista.h \
+    menucivilizacion.h
