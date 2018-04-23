@@ -139,7 +139,7 @@ void respaldar(Lista<Civilizaciones*> &civilizaciones)
 
 Lo anterior generará el archivo "civilizaciones.txt”  con los nombres de cada civilización, 3 archivos con el nombre de cada civilización conteniendo la información de los aldeanos.
 
-![Archivo de civilizaciones.]()
-![Archivos de aldeanos.]()
+![](01.png)
+![](02.png)
 
 [6]: Este algoritmo es solamente una idea por si no se te ocurre como implementarlo.
