@@ -94,3 +94,52 @@ La opción _Mostrar Civilizaciones_ muestra en pantalla el nombre de la civiliza
 
 [5]: Agregar Aldeano, Eliminar Aldeano, Población y Resumen.
  
+## Actividad 03 _(Lista Doblemente Ligada)_
+
+Agregar la característica para respaldar las civilizaciones junto a sus respectivos aldeanos. Lo anterior deberá ser parte del menú de la actividad 02 (Civilizaciones), la cual hará lo siguiente:
+
+
++ Respaldar: guardará en un archivo las civilizaciones que están en la lista simplemente ligada junto a sus aldeanos.
++ Recuperar: leerá el archivo antes creado (respaldo) para ir agregando civilizaciones con sus respectivos aldeanos.
+
+Una idea para poder respaldar es la siguiente [6]:
+
+
+1 Crear el archivo “civilizaciones.txt”, e ir escribiendo el nombre de cada civilización, separadas por un salto de línea. 
+2 Por cada civilización, se deberá crear un nuevo archivo con el nombre de la civilización, y ahí guardar los aldeanos. 
+3 Los aldeanos al tener solamente 4 atributos (nombre, edad, género, salud), será necesario siempre 4 líneas (una línea por atributo).
+
+
+Ejemplo:
+
+```c++
+void respaldar(Lista<Civilizaciones*> &civilizaciones)
+{
+ ofstream archivo("civilizaciones.txt", ios::out);
+
+ for (int i = 0; i < civilizaciones.tamano(); i++) {
+  archivo << civlizaciones[i]->getNombre() << endl;
+  ofstream aldeanos(civilizaciones[i]->getNombre() + ".txt", ios::out);
+  for (int j = 0; j < civilizaciones[i]->poblacion(); j++) {
+   // obtengo el puntero de civilizacion
+   Civilizacion *c = civilizaciones[i]; 
+   // salto a la civilizacion y obtengo la referencia (no hace copia)
+   // del aldeano "j"
+   Aldeano &aldeano = (*c)[j]  
+   aldeanos << aldeano.getNombre() << endl;
+   aldeanos << aldeano.getEdad()   << endl;
+   aldeanos << aldeano.getGenero() << endl;
+   aldeanos << aldeano.getSalud()  << endl;
+  }
+  aldeanos.close();
+ }
+ archivo.close();
+}
+```
+
+Lo anterior generará el archivo "civilizaciones.txt”  con los nombres de cada civilización, 3 archivos con el nombre de cada civilización conteniendo la información de los aldeanos.
+
+![Archivo de civilizaciones.]()
+![Archivos de aldeanos.]()
+
+[6]: Este algoritmo es solamente una idea por si no se te ocurre como implementarlo.
