@@ -36,7 +36,7 @@ Implementar la clase Aldeano[1] con los siguientes atributos:
 Implementar la clase Civilización[2] con los siguientes atributos:
 
 * Nombre
-* Arreglo Din ́amico de aldeanos[3]
+* Arreglo Dinámico de aldeanos[3]
 
 y los siguientes métodos:
 
@@ -46,10 +46,10 @@ y los siguientes métodos:
 
 Implementar un menú para manipular un objeto de la clase civilización, con las siguientes opciones:
 
-1. Nombre de la civilizaci ́on (le pone un nombre a la civilización)
+1. Nombre de la civilización (le pone un nombre a la civilización)
 2. Agregar aldeano (pide los datos del aldeano y lo agrega a la civilización)
 3. Eliminar aldeano (pregunta por el nombre del aldeano)
-4. Resumen (Imprime el nombre de la civilizaci ́on, la poblaci ́on total y cada aldeano consu nombre, edad y salud).
+4. Resumen (Imprime el nombre de la civilización, la población total y cada aldeano consu nombre, edad y salud).
 5. Salir
 
 [1]: Crear los métodos de acceso para los atributos.
@@ -60,7 +60,7 @@ Implementar un menú para manipular un objeto de la clase civilización, con las
  
  ## Actividad 02 _(Lista Simplemente Ligada)_
  
- Implementar un men ́u para manipular una lista simplemente ligada de apuntadores de objetos de la clase Civilización[4], con las siguientes opciones:
+ Implementar un menú para manipular una lista simplemente ligada de apuntadores de objetos de la clase Civilización[4], con las siguientes opciones:
  
 1. Agregar civilización a la lista simplemente ligada
 2. Buscar civilización
