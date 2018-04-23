@@ -1,4 +1,5 @@
 #include "menucivilizacion.h"
+#include <fstream>
 
 MenuCivilizacion::MenuCivilizacion()
 {
@@ -52,4 +53,32 @@ void MenuCivilizacion::eliminar()
             civilizaciones.eliminar(i);
         }
     }
+}
+
+void MenuCivilizacion::recuperar()
+{
+
+}
+
+void MenuCivilizacion::respaldar()
+{
+    ofstream archivo("civilizaciones.txt", ios::out);
+
+     for (int i = 0; i < civilizaciones.tamano(); i++) {
+      archivo << civilizaciones[i]->getNombre() << endl;
+      ofstream aldeanos(civilizaciones[i]->getNombre() + ".txt", ios::out);
+      for (int j = 0; j < civilizaciones[i]->poblacion(); j++) {
+       // obtengo el puntero de civilizacion
+       Civilizacion *c = civilizaciones[i];
+       // salto a la civilizacion y obtengo la referencia (no hace copia)
+       // del aldeano "j"
+       Aldeano &aldeano = (*c)[j];
+       aldeanos << aldeano.getNombre() << endl;
+       aldeanos << aldeano.getEdad()   << endl;
+       aldeanos << aldeano.getGenero() << endl;
+       aldeanos << aldeano.getSalud()  << endl;
+      }
+      aldeanos.close();
+     }
+     archivo.close();
 }

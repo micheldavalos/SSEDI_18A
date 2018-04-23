@@ -13,8 +13,8 @@ public:
     void mostrar();
     void buscar();
     void eliminar();
-
-
+    void recuperar();
+    void respaldar();
 };
 
 #endif // MENUCIVILIZACION_H
