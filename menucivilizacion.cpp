@@ -57,6 +57,54 @@ void MenuCivilizacion::eliminar()
 
 void MenuCivilizacion::recuperar()
 {
+    ifstream archivo("civilizaciones.txt", ios::in);
+
+    if (archivo.is_open()) {
+        while (!archivo.eof()) {
+            string linea;
+
+            getline(archivo, linea);
+            if (archivo.eof()) {
+                break;
+            }
+
+            Civilizacion *civ = new Civilizacion();
+            civ->setNombre(linea);
+
+            civilizaciones.inserar_inicio(civ);
+        }
+
+        for (int i = 0; i < civilizaciones.tamano(); ++i) {
+            ifstream aldeanos(civilizaciones[i]->getNombre() + ".txt", ios::in);
+
+            if (aldeanos.is_open()) {
+                string linea;
+                Aldeano aldeano;
+
+                while (!aldeanos.eof()) {
+                    getline(aldeanos, linea);
+                    if (aldeanos.eof()) {
+                        break;
+                    }
+                    aldeano.setNombre(linea);
+
+                    getline(aldeanos, linea);
+                    aldeano.setEdad(stoi(linea));
+
+                    getline(aldeanos, linea);
+                    aldeano.setGenero(linea[0]);
+
+                    getline(aldeanos, linea);
+                    aldeano.setSalud(stoi(linea));
+
+                    civilizaciones[i]->agregarAldeano(aldeano);
+                }
+
+            }
+            aldeanos.close();
+        }
+    }
+    archivo.close();
 
 }
 

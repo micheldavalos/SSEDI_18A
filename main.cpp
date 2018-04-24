@@ -48,6 +48,9 @@ int main()
         else if (op == "5") {
             m.respaldar();
         }
+        else if (op == "6") {
+            m.recuperar();
+        }
         else if (op == "0") {
             break;
         }
