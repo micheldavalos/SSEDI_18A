@@ -38,19 +38,22 @@ public:
              setw(10) << g.getSalud() <<
              setw(10) << g.getEscudo();
 
+        o <<  setw(20) << right;
         GuerreroTipo tipo = g.getGuerrero();
         if (tipo == GuerreroTipo::LANCERO) {
-            o <<  setw(10)  << "Lancero";
+            o <<  "Lancero";
         }
         else if (tipo == GuerreroTipo::ARQUERO) {
-            o << setw(10) << "Arquero";
+            o << "Arquero";
         }
         else if (tipo == GuerreroTipo::PALADIN) {
-            o << setw(10) <<  "Paladín";
+            o << "Paladín";
         }
         else if (tipo == GuerreroTipo::GUERRERO_JAGUAR) {
-            o << setw(10) <<  "Guerrero Jaguar";
+            o << "Guerrero Jaguar";
         }
+
+
 
         return o;
     }

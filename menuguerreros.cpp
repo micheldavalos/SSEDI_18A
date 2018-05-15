@@ -69,7 +69,7 @@ void MenuGuerreros::mostrarGuerreros(Civilizacion *&civilizacion)
             setw(10) << "Salud|" <<
             setw(10) << "Fuerza|" <<
             setw(10) << "Escudo|" <<
-            setw(10) << "Tipo|" << endl;
+            setw(20) << "Tipo|" << endl;
     for (int i = 0; i < civilizacion->poblacionGuerreros(); ++i) {
         cout << civilizacion->getGuerrero(i);
         cout << endl;
