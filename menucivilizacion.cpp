@@ -92,8 +92,7 @@ void MenuCivilizacion::recuperar()
         }
 
         for (int i = 0; i < civilizaciones.tamano(); ++i) {
-            ifstream aldeanos(civilizaciones[i]->getNombre() + ".txt", ios::in);
-
+            ifstream aldeanos(civilizaciones[i]->getNombre() + "_aldeanos.txt", ios::in);
             if (aldeanos.is_open()) {
                 string linea;
                 Aldeano aldeano;
@@ -119,6 +118,35 @@ void MenuCivilizacion::recuperar()
 
             }
             aldeanos.close();
+
+            ifstream guerreros(civilizaciones[i]->getNombre() + "_guerreros.txt", ios::in);
+            if (guerreros.is_open()) {
+                string linea;
+                Guerrero guerrero;
+
+                while (!guerreros.eof()) {
+                    getline(guerreros, linea);
+                    if (guerreros.eof()) {
+                        break;
+                    }
+                    guerrero.setId(linea);
+
+                    getline(guerreros, linea);
+                    guerrero.setSalud(stoi(linea));
+
+                    getline(guerreros, linea);
+                    guerrero.setFuerza(stof(linea));
+
+                    getline(guerreros, linea);
+                    guerrero.setEscudo(stof(linea));
+
+                    getline(guerreros, linea);
+                    guerrero.setGuerrero(linea);
+
+                    civilizaciones[i]->agregarGuerrero(guerrero);
+                }
+            }
+            guerreros.close();
         }
     }
     archivo.close();
@@ -129,21 +157,39 @@ void MenuCivilizacion::respaldar()
 {
     ofstream archivo("civilizaciones.txt", ios::out);
 
-     for (int i = 0; i < civilizaciones.tamano(); i++) {
-      archivo << civilizaciones[i]->getNombre() << endl;
-      ofstream aldeanos(civilizaciones[i]->getNombre() + ".txt", ios::out);
-      for (int j = 0; j < civilizaciones[i]->poblacion(); j++) {
-       // obtengo el puntero de civilizacion
-       Civilizacion *c = civilizaciones[i];
-       // salto a la civilizacion y obtengo la referencia (no hace copia)
-       // del aldeano "j"
-       Aldeano &aldeano = (*c)[j];
-       aldeanos << aldeano.getNombre() << endl;
-       aldeanos << aldeano.getEdad()   << endl;
-       aldeanos << aldeano.getGenero() << endl;
-       aldeanos << aldeano.getSalud()  << endl;
-      }
-      aldeanos.close();
-     }
-     archivo.close();
+    if (archivo.is_open()) {
+        for (int i = 0; i < civilizaciones.tamano(); i++) {
+            archivo << civilizaciones[i]->getNombre() << endl;
+
+            ofstream aldeanos(civilizaciones[i]->getNombre() + "_aldeanos.txt", ios::out);
+            if (aldeanos.is_open()) {
+
+                for (int j = 0; j < civilizaciones[i]->poblacion(); j++) {
+                    // obtengo el puntero de civilizacion
+                    Civilizacion *c = civilizaciones[i];
+                    // salto a la civilizacion y obtengo la referencia (no hace copia)
+                    // del aldeano "j"
+                    Aldeano &aldeano = (*c)[j];
+                    aldeanos << aldeano.getNombre() << endl;
+                    aldeanos << aldeano.getEdad()   << endl;
+                    aldeanos << aldeano.getGenero() << endl;
+                    aldeanos << aldeano.getSalud()  << endl;
+                }
+            }
+            aldeanos.close();
+
+            ofstream guerreros(civilizaciones[i]->getNombre() + "_guerreros.txt", ios::out);
+            if (guerreros.is_open()) {
+                for (int j = 0; j < civilizaciones[i]->poblacionGuerreros(); ++j) {
+                    Guerrero &guerrero = civilizaciones[i]->getGuerrero(j);
+                    guerreros << guerrero.getId() << endl;
+                    guerreros << guerrero.getSalud() << endl;
+                    guerreros << guerrero.getFuerza() << endl;
+                    guerreros << guerrero.getGuerrero() << endl;
+                }
+            }
+            guerreros.close();
+        }
+    }
+    archivo.close();
 }

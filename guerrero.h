@@ -10,10 +10,11 @@ enum class GuerreroTipo {LANCERO = 1,
                          PALADIN,
                          GUERRERO_JAGUAR};
 
+
 class Guerrero
 {
     string id;
-    float salud;
+    int salud;
     float fuerza;
     float escudo;
     GuerreroTipo guerrero;
@@ -22,14 +23,16 @@ public:
     Guerrero();
     string getId() const;
     void setId(const string &value);
-    float getSalud() const;
-    void setSalud(float value);
+    int getSalud() const;
+    void setSalud(int value);
     float getFuerza() const;
     void setFuerza(float value);
     float getEscudo() const;
     void setEscudo(float value);
     GuerreroTipo getGuerrero() const;
     void setGuerrero(const GuerreroTipo &value);
+    void setGuerrero(const string &tipo);
+    string getGuerrero();
 
     friend ostream& operator <<(ostream &o, const Guerrero &g)
     {
@@ -57,6 +60,7 @@ public:
 
         return o;
     }
+
 };
 
 #endif // GUERRERO_H
