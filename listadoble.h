@@ -40,7 +40,7 @@ public:
     void eliminar_final();
     void eliminar(int posicion);
 
-    T& operator[](int posicion);
+    T& operator[](int posicion) const;
     unsigned int getSize() const;
 };
 template <class T>
@@ -197,7 +197,7 @@ void ListaDoble<T>::eliminar(int posicion)
 }
 
 template<class T>
-T &ListaDoble<T>::operator[](int posicion)
+T &ListaDoble<T>::operator[](int posicion) const
 {
     if (posicion < 0 || posicion >= size) {
         throw out_of_range("Posicion no valida");

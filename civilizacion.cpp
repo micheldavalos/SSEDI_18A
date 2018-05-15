@@ -15,6 +15,16 @@ void Civilizacion::agregarGuerrero(const Guerrero &guerrero)
     guerreros.insertar_inicio(guerrero);
 }
 
+unsigned int Civilizacion::poblacionGuerreros() const
+{
+    return guerreros.getSize();
+}
+
+Guerrero &Civilizacion::getGuerrero(int posicion) const
+{
+    return guerreros[posicion];
+}
+
 Aldeano &Civilizacion::operator[](int posicion) const
 {
     return aldeanos[posicion];

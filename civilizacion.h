@@ -23,12 +23,10 @@ public:
     string getNombre() const;
     void setNombre(const string &value);
 
-    /*!
-     * \brief agregar guerreros a la civilizacion
-     * \param Guerrero: objeto de tipo guerrero
-     * \return nada
-     */
+    // Guerrero
     void agregarGuerrero(const Guerrero &guerrero);
+    unsigned int poblacionGuerreros() const;
+    Guerrero& getGuerrero(int posicion) const;
 
     Aldeano &operator[](int posicion)const;
 };

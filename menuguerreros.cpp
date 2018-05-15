@@ -7,11 +7,15 @@ MenuGuerreros::MenuGuerreros(Civilizacion *&civilizacion)
 
     while (true) {
         cout << "1) Agregar Guerrero" << endl;
+        cout << "2) Mostrar Guereros" << endl;
         cout << "0) Salir" << endl;
         getline(cin, op);
 
         if (op == "1") {
             agregarGuerrero(civilizacion);
+        }
+        else if (op == "2") {
+            mostrarGuerreros(civilizacion);
         }
 
         else {
@@ -57,6 +61,19 @@ void MenuGuerreros::agregarGuerrero(Civilizacion *&civilizacion)
     g.setGuerrero(tipo);
 
     civilizacion->agregarGuerrero(g);
+}
+
+void MenuGuerreros::mostrarGuerreros(Civilizacion *&civilizacion)
+{
+    cout << setw(5) << "ID|" <<
+            setw(10) << "Salud|" <<
+            setw(10) << "Fuerza|" <<
+            setw(10) << "Escudo|" <<
+            setw(10) << "Tipo|" << endl;
+    for (int i = 0; i < civilizacion->poblacionGuerreros(); ++i) {
+        cout << civilizacion->getGuerrero(i);
+        cout << endl;
+    }
 }
 
 void MenuGuerreros::capturar(const string &mensaje, float min, float max, float &valor)

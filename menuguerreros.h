@@ -9,6 +9,7 @@ class MenuGuerreros
 public:
     MenuGuerreros(Civilizacion* &civilizacion);
     void agregarGuerrero(Civilizacion* &civilizacion);
+    void mostrarGuerreros(Civilizacion *&civilizacion);
 
 private:
     void capturar(const string &mensaje, int min, int max, int &valor);
