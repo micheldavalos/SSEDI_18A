@@ -35,7 +35,24 @@ void MenuCivilizacion::buscar()
 
     for (int i = 0; i < civilizaciones.tamano(); ++i) {
         if (civilizaciones[i]->getNombre() == nombre) {
-            MenuAldeanos m(civilizaciones[i]);
+            string op;
+
+            do {
+                cout << "1) Aldeanos" << endl
+                     << "2) Guerreros" << endl
+                     << "0) Salir" << endl;
+
+                getline(cin, op);
+
+                if (op == "1") {
+                    MenuAldeanos m(civilizaciones[i]);
+                }
+                else if (op == "2"){
+                    MenuGuerreros m(civilizaciones[i]);
+                }
+
+            } while (op != "0");
+
             break;
         }
     }

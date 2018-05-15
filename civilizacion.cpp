@@ -10,6 +10,11 @@ void Civilizacion::setNombre(const string &value)
     nombre = value;
 }
 
+void Civilizacion::agregarGuerrero(const Guerrero &guerrero)
+{
+    guerreros.insertar_inicio(guerrero);
+}
+
 Aldeano &Civilizacion::operator[](int posicion) const
 {
     return aldeanos[posicion];

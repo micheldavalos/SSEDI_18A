@@ -6,13 +6,13 @@
 using namespace std;
 
 template <class T>
-class Nodo
+class Nodo2
 {
     T dato;
-    Nodo<T> *sig;
+    Nodo2<T> *sig;
 
 public:
-    Nodo(const T &d, Nodo<T> *s = nullptr)
+    Nodo2(const T &d, Nodo2<T> *s = nullptr)
     {
         dato = d;
         sig = s;
@@ -25,7 +25,7 @@ public:
 template <class T>
 class Lista
 {
-    Nodo<T> *raiz;
+    Nodo2<T> *raiz;
 
 public:
     Lista();
@@ -55,7 +55,7 @@ Lista<T>::Lista()
 template<class T>
 Lista<T>::~Lista()
 {
-    Nodo<T> *temp = raiz;
+    Nodo2<T> *temp = raiz;
 
     while (temp != nullptr) {
         raiz = temp->sig; // raiz->sig
@@ -68,11 +68,11 @@ template<class T>
 void Lista<T>::inserar_inicio(const T &d)
 {
     if (raiz == nullptr) {
-        Nodo<T> *nuevo = new Nodo<T>(d);
+        Nodo2<T> *nuevo = new Nodo2<T>(d);
         raiz = nuevo;
     }
     else {
-        Nodo<T> *nuevo = new Nodo<T>(d);
+        Nodo2<T> *nuevo = new Nodo2<T>(d);
         nuevo->sig = raiz;
         raiz = nuevo;
     }
@@ -82,16 +82,16 @@ template<class T>
 void Lista<T>::insertar_final(const T &d)
 {
     if (raiz == nullptr) {
-        Nodo<T> *nuevo = new Nodo<T>(d);
+        Nodo2<T> *nuevo = new Nodo2<T>(d);
         raiz = nuevo;
     }
     else {
-        Nodo<T> *temp = raiz;
+        Nodo2<T> *temp = raiz;
 
         while (temp->sig != nullptr) {
             temp = temp->sig;
         }
-        Nodo<T> *nuevo = new Nodo<T>(d);
+        Nodo2<T> *nuevo = new Nodo2<T>(d);
         temp->sig = nuevo;
     }
 }
@@ -105,11 +105,11 @@ void Lista<T>::insertar(const T &d, int posicion)
     else {
         int i = 0;
         bool flag = false;
-        Nodo<T> *temp = raiz;
+        Nodo2<T> *temp = raiz;
 
         while (temp != nullptr) {
             if (posicion == i) {
-                Nodo<T> *nuevo = new Nodo<T>(d);
+                Nodo2<T> *nuevo = new Nodo2<T>(d);
 
                 nuevo->sig = temp->sig;
                 temp->sig = nuevo;
@@ -132,7 +132,7 @@ void Lista<T>::eliminar_inicio()
         throw out_of_range("Lista Vacia");
     }
     else {
-        Nodo<T> *temp = raiz;
+        Nodo2<T> *temp = raiz;
         raiz = raiz->sig;
         delete temp;
     }
@@ -148,7 +148,7 @@ void Lista<T>::eliminar_final()
         eliminar_inicio();
     }
     else {
-        Nodo<T> *temp = raiz;
+        Nodo2<T> *temp = raiz;
 
         while (temp->sig->sig != nullptr) {
             temp = temp->sig;
@@ -156,7 +156,7 @@ void Lista<T>::eliminar_final()
 
         delete temp->sig;
         temp->sig = nullptr;
-//        Nodo<T> **temp = &raiz;
+//        Nodo2<T> **temp = &raiz;
 
 //        while ((*temp)->sig != nullptr) {
 //            temp = &(*temp)->sig;
@@ -180,12 +180,12 @@ void Lista<T>::eliminar(int posicion)
         eliminar_final();
     }
     else {
-        Nodo<T> *temp = raiz;
+        Nodo2<T> *temp = raiz;
         int cont = 0;
 
         while (temp != nullptr) {
             if (cont++ == posicion - 1) {
-                Nodo<T> *t = temp->sig;
+                Nodo2<T> *t = temp->sig;
                 temp->sig = temp->sig->sig;
                 delete t;
                 break;
@@ -198,7 +198,7 @@ void Lista<T>::eliminar(int posicion)
 template<class T>
 int Lista<T>::tamano()
 {
-    Nodo<T> *temp = raiz;
+    Nodo2<T> *temp = raiz;
     int cont = 0;
 
     while (temp != nullptr) {
@@ -216,7 +216,7 @@ T &Lista<T>::operator[](int posicion)
         throw out_of_range("Posicion no valida");
     }
     else {
-        Nodo<T> *temp = raiz;
+        Nodo2<T> *temp = raiz;
         int cont = 0;
 
         while (temp != nullptr) {
@@ -233,7 +233,7 @@ template<class T>
 string Lista<T>::to_string()
 {
     string lista = "[ ";
-    Nodo<T> *temp = raiz;
+    Nodo2<T> *temp = raiz;
 
     while (temp != nullptr) {
         lista += temp->dato;

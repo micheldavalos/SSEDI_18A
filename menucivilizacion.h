@@ -2,6 +2,7 @@
 #define MENUCIVILIZACION_H
 
 #include "menualdeanos.h"
+#include "menuguerreros.h"
 #include "lista.h"
 
 class MenuCivilizacion

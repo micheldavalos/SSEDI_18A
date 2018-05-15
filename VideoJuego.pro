@@ -7,7 +7,9 @@ SOURCES += main.cpp \
     aldeano.cpp \
     civilizacion.cpp \
     menualdeanos.cpp \
-    menucivilizacion.cpp
+    menucivilizacion.cpp \
+    guerrero.cpp \
+    menuguerreros.cpp
 
 HEADERS += \
     aldeano.h \
@@ -15,4 +17,7 @@ HEADERS += \
     civilizacion.h \
     menualdeanos.h \
     lista.h \
-    menucivilizacion.h
+    menucivilizacion.h \
+    guerrero.h \
+    listadoble.h \
+    menuguerreros.h

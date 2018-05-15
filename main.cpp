@@ -1,23 +1,10 @@
 #include <iostream>
-//#include "lista.h"
-//#include "persona.h"
-
 #include "menucivilizacion.h"
 using namespace std;
 
 int main()
 {
-//    Lista<Persona*> personas;
 
-//    for (int i = 0; i < 10; ++i) {
-//        Persona *p = new Persona();
-//        p->setNombre(to_string(i));
-//        personas.inserar_inicio(p);
-//    }
-
-//    for (int i = 0; i < 10; ++i) {
-//        cout << personas[i]->getNombre() << endl;
-//    }
     MenuCivilizacion m;
     string op;
 
