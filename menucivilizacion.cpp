@@ -23,7 +23,8 @@ void MenuCivilizacion::mostrar()
 {
     for (int i = 0; i < civilizaciones.tamano(); ++i) {
         cout << "Civilizacion: " << civilizaciones[i]->getNombre() << endl;
-        cout << "Poblacion:    " << civilizaciones[i]->poblacion() << endl << endl;
+        cout << "Aldeanos:     " << civilizaciones[i]->poblacion() << endl;
+        cout << "Guerreros:    " << civilizaciones[i]->poblacionGuerreros() << endl << endl;
     }
 }
 
