@@ -31,6 +31,7 @@ class ListaDoble
     unsigned int size;
 public:
     ListaDoble();
+    ~ListaDoble();
     bool vacia();
     void insertar_inicio(const T &dato);
     void insertar_final(const T &dato);
@@ -48,6 +49,14 @@ ListaDoble<T>::ListaDoble()
 {
     primero = ultimo = nullptr;
     size = 0;
+}
+
+template<class T>
+ListaDoble<T>::~ListaDoble()
+{
+    while (!vacia()) {
+        eliminar_inicio();
+    }
 }
 template <class T>
 unsigned int ListaDoble<T>::getSize() const
