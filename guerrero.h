@@ -4,7 +4,10 @@
 #include <iostream>
 using namespace std;
 
-enum GuerreroTipo {LANCERO, ARQUERO, PALADIN, GUERRERO_JAGUAR};
+enum class GuerreroTipo {LANCERO = 1,
+                         ARQUERO,
+                         PALADIN,
+                         GUERRERO_JAGUAR};
 
 class Guerrero
 {
