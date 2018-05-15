@@ -143,3 +143,60 @@ Lo anterior generará el archivo "civilizaciones.txt”  con los nombres de cada
 ![](02.png)
 
 [6]: Este algoritmo es solamente una idea por si no se te ocurre como implementarlo.
+
+## Actividad 04 _(Lista Doblemente Ligada)_
+
+Implementar la clase Guerrero, la cual tendrá los siguientes atributos [7]:
+
++ id
++ Salud (0-100)
++ Fuerza (0.0 - 60.0)
++ Escudo (0.0 - 30.0)
++ Tipo de Guerrero (lancero, arquero, paladín, etc)[8]
+
+Agregar a la clase Civilización un objeto de la clase Lista Doblemente Ligada de tipo Guerrero[9] así como un método para agregar un Guerrero al objeto de la clase Lista Doblemenete Ligada.
+
+```c++
+#include "listadoble.h"
+#include "guerrero.h"
+
+class Civilizacion
+{
+private:
+    ...
+    ListaDoble<Guerrero> guerreros;
+public:
+    Civilizacion();
+    ...
+    void agregarGuerrero(const Guerrero &g)
+    {
+        guerreros.insertar_inicio(g);
+    }
+};
+```
+
+Agregar al Menú de Civilización (Actividad 01) las siguientes opciones:
+
+1. Agregar Guerrero.
+2. Mostrar todos los Guerreros. 
+3. Buscar guerreros por:
+ * Salud mayor igual que y menor que el campo de búsqueda.
+ * Fuerza mayor igual que y menor que el campo de búsqueda.
+ * Clase de guerrero.
+
+4. Eliminar por:
+ * id
+ * Tipo de guerrero.
+ * Salud menor que el campo de búsqueda.
+
+5. Modificar guerrero (pedir el id del guerrero y mostrar un menú para modificar los atributos: salud, fuerza, escudo)
+
+Agregar al método _(Mostrar Civilizaciones)_ para que aparte de mostrar en pantalla el nombre de la civilización y su población, también muestre la población de guerreros (getSize() de la lista doblemente ligada).
+
+Agregar a los métodos de respaldar y recuperar, para que también guarde/recupere los guerreros.
+
+[7]: Implementar sus métodos de acceso (getters/seeter).
+
+[8]: Definir los tipos de guerrero (mínimo 4 tipos). Pueden estar definidos en la opción del menú, usando un  [enumerador](http://en.cppreference.com/w/cpp/language/enum) o cuando se pida el tipo por la consola.
+
+[9]:  ListaDoble<Guerrero>.
