@@ -154,7 +154,7 @@ Implementar la clase Guerrero, la cual tendrá los siguientes atributos [7]:
 + Escudo (0.0 - 30.0)
 + Tipo de Guerrero (lancero, arquero, paladín, etc) [8]
 
-Agregar a la clase Civilización un objeto de la clase Lista Doblemente Ligada de tipo Guerrero [9] así como un método para agregar un Guerrero al objeto de la clase Lista Doblemenete Ligada.
+Agregar a la clase Civilización un objeto de la clase Lista Doblemente Ligada de tipo Guerrero así como un método para agregar un Guerrero al objeto de la clase Lista Doblemenete Ligada.
 
 ```c++
 #include "listadoble.h"
@@ -199,4 +199,3 @@ Agregar a los métodos de respaldar y recuperar, para que también guarde/recupe
 
 [8]: Definir los tipos de guerrero (mínimo 4 tipos). Pueden estar definidos en la opción del menú, usando un  [enumerador](http://en.cppreference.com/w/cpp/language/enum) o cuando se pida el tipo por la consola.
 
-[9]: ListaDoble<Guerrero>.
