@@ -11,6 +11,7 @@ public:
     void agregarGuerrero(Civilizacion* &civilizacion);
     void mostrarGuerreros(Civilizacion *&civilizacion);
     void buscar(Civilizacion *&civilizacion);
+    void eliminar(Civilizacion *&civilizacion);
 
 private:
     void capturar(const string &mensaje, int min, int max, int &valor);

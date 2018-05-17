@@ -9,6 +9,7 @@ MenuGuerreros::MenuGuerreros(Civilizacion *&civilizacion)
         cout << "1) Agregar Guerrero" << endl;
         cout << "2) Mostrar Guereros" << endl;
         cout << "3) Buscar Guerreros" << endl;
+        cout << "4) Eliminar Guerreros" << endl;
         cout << "0) Salir" << endl;
         getline(cin, op);
 
@@ -21,8 +22,9 @@ MenuGuerreros::MenuGuerreros(Civilizacion *&civilizacion)
         else if (op == "3") {
             buscar(civilizacion);
         }
-
-
+        else if (op == "4") {
+            eliminar(civilizacion);
+        }
         else {
             break;
         }
@@ -108,6 +110,32 @@ void MenuGuerreros::buscar(Civilizacion *&civilizacion)
         }
         else if (op == "5") {
             buscarClase(civilizacion);
+        }
+        else if (op == "0") {
+            break;
+        }
+    }
+}
+
+void MenuGuerreros::eliminar(Civilizacion *&civilizacion)
+{
+    string op;
+
+    while (true) {
+        cout << "1) ID" << endl;
+        cout << "2) Tipo" << endl;
+        cout << "3) Salud <" << endl;
+        cout << "0) Salir" << endl;
+        getline(cin, op);
+
+        if (op == "1") {
+
+        }
+        else if (op == "2") {
+
+        }
+        else if (op == "3") {
+
         }
         else if (op == "0") {
             break;
