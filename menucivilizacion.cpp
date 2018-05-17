@@ -186,6 +186,7 @@ void MenuCivilizacion::respaldar()
                     guerreros << guerrero.getId() << endl;
                     guerreros << guerrero.getSalud() << endl;
                     guerreros << guerrero.getFuerza() << endl;
+                    guerreros << guerrero.getEscudo() << endl;
                     guerreros << guerrero.getGuerrero() << endl;
                 }
             }

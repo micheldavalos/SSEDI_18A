@@ -8,6 +8,7 @@ MenuGuerreros::MenuGuerreros(Civilizacion *&civilizacion)
     while (true) {
         cout << "1) Agregar Guerrero" << endl;
         cout << "2) Mostrar Guereros" << endl;
+        cout << "3) Buscar Guerreros" << endl;
         cout << "0) Salir" << endl;
         getline(cin, op);
 
@@ -17,6 +18,10 @@ MenuGuerreros::MenuGuerreros(Civilizacion *&civilizacion)
         else if (op == "2") {
             mostrarGuerreros(civilizacion);
         }
+        else if (op == "3") {
+            buscar(civilizacion);
+        }
+
 
         else {
             break;
@@ -73,6 +78,40 @@ void MenuGuerreros::mostrarGuerreros(Civilizacion *&civilizacion)
     for (int i = 0; i < civilizacion->poblacionGuerreros(); ++i) {
         cout << civilizacion->getGuerrero(i);
         cout << endl;
+    }
+}
+
+void MenuGuerreros::buscar(Civilizacion *&civilizacion)
+{
+    string op;
+
+    while (true) {
+        cout << "1) Salud >=" << endl;
+        cout << "2) Salud <" << endl;
+        cout << "3) Fuerza >=" << endl;
+        cout << "4) Fuerza <" << endl;
+        cout << "5) Clase" << endl;
+        cout << "0) Salir" << endl;
+        getline(cin, op);
+
+        if (op == "1") {
+            buscarSalud(civilizacion);
+        }
+        else if (op == "2") {
+            buscarSalud(civilizacion, 1);
+        }
+        else if (op == "3") {
+            buscarFuerza(civilizacion);
+        }
+        else if (op == "4") {
+            buscarFuerza(civilizacion, 1);
+        }
+        else if (op == "5") {
+            buscarClase(civilizacion);
+        }
+        else if (op == "0") {
+            break;
+        }
     }
 }
 
@@ -134,6 +173,76 @@ void MenuGuerreros::capturar(const string &mensaje, int min, int max, GuerreroTi
         }
     } while (flag);
 }
+
+void MenuGuerreros::buscarSalud(Civilizacion *&civilizacion, int tipo)
+{
+    int valor;
+    Civilizacion *c = new Civilizacion;
+
+    capturar("Ingresa el valor", 0, 100, valor);
+
+    for (unsigned int i = 0; i < civilizacion->poblacionGuerreros(); ++i) {
+
+        if (tipo == 0 && civilizacion->getGuerrero(i).getSalud() >= valor) {
+            c->agregarGuerrero(civilizacion->getGuerrero(i));
+        }
+        else if (tipo == 1 && civilizacion->getGuerrero(i).getSalud() < valor) {
+            c->agregarGuerrero(civilizacion->getGuerrero(i));
+        }
+    }
+
+    mostrarGuerreros(c);
+
+    delete c;
+}
+
+void MenuGuerreros::buscarFuerza(Civilizacion *&civilizacion, int tipo)
+{
+    float valor;
+    Civilizacion *c = new Civilizacion;
+
+    capturar("Ingresa el valor", 0.0, 60.0, valor);
+
+    for (unsigned int i = 0; i < civilizacion->poblacionGuerreros(); ++i) {
+
+        if (tipo == 0 && civilizacion->getGuerrero(i).getFuerza() >= valor) {
+            c->agregarGuerrero(civilizacion->getGuerrero(i));
+        }
+        else if (tipo == 1 && civilizacion->getGuerrero(i).getFuerza() < valor) {
+            c->agregarGuerrero(civilizacion->getGuerrero(i));
+        }
+    }
+
+    mostrarGuerreros(c);
+
+    delete c;
+}
+
+void MenuGuerreros::buscarClase(Civilizacion *&civilizacion)
+{
+    Civilizacion *c = new Civilizacion;
+    // Tipo
+    string msg = "Tipo de Guerrero \n "
+                 "1) Lancero" "\n "
+                 "2) Arquero" "\n "
+                 "3) Paladín" "\n "
+                 "4) Guerrero Jaguar" "\n"
+                 "(1 - 4): ";
+    GuerreroTipo valor;
+    capturar(msg, 1, 4, valor);
+
+    for (unsigned int i = 0; i < civilizacion->poblacionGuerreros(); ++i) {
+        if (civilizacion->getGuerrero(i).getGuerreroTipo() == valor) {
+            c->agregarGuerrero(civilizacion->getGuerrero(i));
+        }
+
+    }
+
+    mostrarGuerreros(c);
+
+    delete c;
+}
+
 
 void MenuGuerreros::capturar(const string &mensaje, int min, int max, int &valor)
 {

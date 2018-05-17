@@ -40,7 +40,7 @@ void Guerrero::setEscudo(float value)
     escudo = value;
 }
 
-GuerreroTipo Guerrero::getGuerrero() const
+GuerreroTipo Guerrero::getGuerreroTipo() const
 {
     return guerrero;
 }

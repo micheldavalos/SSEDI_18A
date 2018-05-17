@@ -29,7 +29,7 @@ public:
     void setFuerza(float value);
     float getEscudo() const;
     void setEscudo(float value);
-    GuerreroTipo getGuerrero() const;
+    GuerreroTipo getGuerreroTipo() const;
     void setGuerrero(const GuerreroTipo &value);
     void setGuerrero(const string &tipo);
     string getGuerrero();
@@ -42,7 +42,7 @@ public:
              setw(10) << g.getEscudo();
 
         o <<  setw(20) << right;
-        GuerreroTipo tipo = g.getGuerrero();
+        GuerreroTipo tipo = g.getGuerreroTipo();
         if (tipo == GuerreroTipo::LANCERO) {
             o <<  "Lancero";
         }
