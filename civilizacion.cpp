@@ -25,6 +25,11 @@ Guerrero &Civilizacion::getGuerrero(int posicion) const
     return guerreros[posicion];
 }
 
+void Civilizacion::eliminarGuerrero(int posicion)
+{
+    guerreros.eliminar(posicion);
+}
+
 Aldeano &Civilizacion::operator[](int posicion) const
 {
     return aldeanos[posicion];

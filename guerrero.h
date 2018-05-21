@@ -38,7 +38,7 @@ public:
     {
         o << setw(5) << g.getId() <<
              setw(10) << g.getSalud() <<
-             setw(10) << g.getSalud() <<
+             setw(10) << g.getFuerza() <<
              setw(10) << g.getEscudo();
 
         o <<  setw(20) << right;

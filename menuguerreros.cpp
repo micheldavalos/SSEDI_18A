@@ -10,6 +10,7 @@ MenuGuerreros::MenuGuerreros(Civilizacion *&civilizacion)
         cout << "2) Mostrar Guereros" << endl;
         cout << "3) Buscar Guerreros" << endl;
         cout << "4) Eliminar Guerreros" << endl;
+        cout << "5) Modificar Guerrero" << endl;
         cout << "0) Salir" << endl;
         getline(cin, op);
 
@@ -24,6 +25,9 @@ MenuGuerreros::MenuGuerreros(Civilizacion *&civilizacion)
         }
         else if (op == "4") {
             eliminar(civilizacion);
+        }
+        else if (op == "5") {
+            modificar(civilizacion);
         }
         else {
             break;
@@ -129,18 +133,62 @@ void MenuGuerreros::eliminar(Civilizacion *&civilizacion)
         getline(cin, op);
 
         if (op == "1") {
-
+            eliminarID(civilizacion);
         }
         else if (op == "2") {
-
+            eliminarTipo(civilizacion);
         }
         else if (op == "3") {
-
+            eliminarSalud(civilizacion);
         }
         else if (op == "0") {
             break;
         }
     }
+}
+
+void MenuGuerreros::modificar(Civilizacion *&civilizacion)
+{
+    string id;
+
+    cout << "ID del Guerrero: ";
+    getline(cin, id);
+
+    for (unsigned int i = 0; i < civilizacion->poblacionGuerreros(); i++) {
+        if (civilizacion->getGuerrero(i).getId() == id) {
+            string op;
+            Guerrero &g = civilizacion->getGuerrero(i);
+            cout << "Modificar" << endl;
+            while (true) {
+                cout << "1) Salud" << endl;
+                cout << "2) Fuerza" << endl;
+                cout << "3) Escudo" << endl;
+                cout << "0) Salir" << endl;
+                getline(cin, op);
+
+                if (op == "1") {
+                    int temp_int;
+                    capturar("Salud", 0, 100, temp_int);
+                    g.setSalud(temp_int);
+                }
+                else if (op == "2") {
+                    float temp_float;
+                    capturar("Fuerza", 0.0, 60.0, temp_float);
+                    g.setFuerza(temp_float);
+                }
+                else if (op == "3") {
+                    float temp_float;
+                    capturar("Escudo", 0.0, 30.0, temp_float);
+                    g.setEscudo(temp_float);
+                }
+                else if (op == "0") {
+                    break;
+                }
+            }
+        }
+    }
+
+
 }
 
 void MenuGuerreros::capturar(const string &mensaje, float min, float max, float &valor)
@@ -269,6 +317,63 @@ void MenuGuerreros::buscarClase(Civilizacion *&civilizacion)
     mostrarGuerreros(c);
 
     delete c;
+}
+
+void MenuGuerreros::eliminarID(Civilizacion *&civilizacion)
+{
+    string id;
+
+    cout << "ID: ";
+    getline(cin, id);
+
+    for (unsigned int i = 0; i < civilizacion->poblacionGuerreros(); ) {
+        if (civilizacion->getGuerrero(i).getId() == id) {
+            civilizacion->eliminarGuerrero(i);
+        }
+        else {
+            i++;
+        }
+    }
+}
+
+void MenuGuerreros::eliminarTipo(Civilizacion *&civilizacion)
+{
+    string msg = "Tipo de Guerrero \n "
+                 "1) Lancero" "\n "
+                 "2) Arquero" "\n "
+                 "3) Paladín" "\n "
+                 "4) Guerrero Jaguar" "\n"
+                 "(1 - 4): ";
+    GuerreroTipo valor;
+    capturar(msg, 1, 4, valor);
+
+    for (unsigned int i = 0; i < civilizacion->poblacionGuerreros();) {
+        if (civilizacion->getGuerrero(i).getGuerreroTipo() == valor) {
+            civilizacion->eliminarGuerrero(i);
+        }
+        else {
+            i++;
+        }
+
+    }
+
+}
+
+void MenuGuerreros::eliminarSalud(Civilizacion *&civilizacion)
+{
+    int valor;
+
+    capturar("Ingresa el valor", 0, 100, valor);
+
+    for (unsigned int i = 0; i < civilizacion->poblacionGuerreros();) {
+        if (civilizacion->getGuerrero(i).getSalud() < valor) {
+            civilizacion->eliminarGuerrero(i);
+        }
+        else {
+            i++;
+        }
+
+    }
 }
 
 

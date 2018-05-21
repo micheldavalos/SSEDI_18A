@@ -12,6 +12,7 @@ public:
     void mostrarGuerreros(Civilizacion *&civilizacion);
     void buscar(Civilizacion *&civilizacion);
     void eliminar(Civilizacion *&civilizacion);
+    void modificar(Civilizacion *&civilizacion);
 
 private:
     void capturar(const string &mensaje, int min, int max, int &valor);
@@ -21,6 +22,11 @@ private:
     void buscarSalud(Civilizacion *&civilizacion, int tipo = 0);
     void buscarFuerza(Civilizacion *&civilizacion, int tipo = 0);
     void buscarClase(Civilizacion *&civilizacion);
+
+    void eliminarID(Civilizacion *&civilizacion);
+    void eliminarTipo(Civilizacion *&civilizacion);
+    void eliminarSalud(Civilizacion *&civilizacion);
+
 };
 
 #endif // MENUGUERREROS_H

@@ -27,6 +27,7 @@ public:
     void agregarGuerrero(const Guerrero &guerrero);
     unsigned int poblacionGuerreros() const;
     Guerrero& getGuerrero(int posicion) const;
+    void eliminarGuerrero(int posicion);
 
     Aldeano &operator[](int posicion)const;
 };
