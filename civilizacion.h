@@ -37,6 +37,7 @@ public:
     size_t recursosTotales();
     unsigned int cantidadRecursos();
     Recurso &getRecurso(int posicion);
+    void eliminar(int posicion);
 
 
     Aldeano &operator[](int posicion)const;

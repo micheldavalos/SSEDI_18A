@@ -26,6 +26,7 @@ MenuRecurso::MenuRecurso(Civilizacion *&civilizacion)
             buscar(civilizacion);
         }
         else if (op == "4") {
+            modificar(civilizacion);
         }
         else {
             break;
@@ -149,4 +150,45 @@ void MenuRecurso::buscarRecursoTipo(Civilizacion *&civilizacion)
     delete c;
 
 
+}
+
+void MenuRecurso::modificar(Civilizacion *&civilizacion)
+{
+    string id;
+
+    cout << "ID del Guerrero: ";
+    getline(cin, id);
+
+    for (int i = 0; i < civilizacion->cantidadRecursos(); ++i) {
+        Recurso &recurso = civilizacion->getRecurso(i);
+
+        if (id == recurso.getId()) {
+            string op;
+
+            while (true) {
+                cout << "1) Modificar Cantidad" << endl;
+                cout << "0) Salir" << endl;
+                getline(cin, op);
+
+                if (op == "1") {
+                    int temp_int;
+                    Captura::capturar("Cantidad", 0, 500, temp_int);
+                    recurso.setCantidad(temp_int);
+
+                    if (temp_int == 0) {
+                        civilizacion->eliminar(i);
+                        i = civilizacion->cantidadRecursos();
+
+                        cout << "Recurso eliminado" << endl;
+
+                        break;
+                    }
+
+                }
+                else if (op == "0") {
+                    break;
+                }
+            }
+        }
+    }
 }

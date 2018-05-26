@@ -103,3 +103,8 @@ unsigned int Civilizacion::cantidadRecursos()
 {
     return recursos.size();
 }
+
+void Civilizacion::eliminar(int posicion)
+{
+    recursos.eliminar(posicion);
+}

@@ -25,6 +25,8 @@ public:
     void mostrarRecurso(Civilizacion *&civilizacion);
 
     void buscar(Civilizacion *&civilizacion);
+
+    void modificar(Civilizacion *&civilizacion);
 };
 
 
