@@ -70,3 +70,19 @@ string Recurso::getTipoString()
 
     return o;
 }
+
+void Recurso::setTipo(const string tipo)
+{
+    if (tipo == "Oro") {
+        Recurso::tipo = RecursoTipo::ORO;
+    }
+    else if (tipo == "Madera") {
+        Recurso::tipo = RecursoTipo::MADERA;
+    }
+    else if (tipo == "Piedra") {
+        Recurso::tipo = RecursoTipo::PIEDRA;
+    }
+    else if (tipo == "Comida") {
+        Recurso::tipo = RecursoTipo::COMIDA;
+    }
+}

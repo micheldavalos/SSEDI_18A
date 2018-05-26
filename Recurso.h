@@ -39,6 +39,8 @@ public:
 
     void setTipo(int tipo);
 
+    void setTipo(const string tipo);
+
 
     bool operator<(const Recurso &recurso)
     {

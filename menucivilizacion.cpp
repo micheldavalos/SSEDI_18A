@@ -152,6 +152,29 @@ void MenuCivilizacion::recuperar()
                 }
             }
             guerreros.close();
+
+            ifstream recursos(civilizaciones[i]->getNombre() + "_recursos.txt", ios::in);
+            if (recursos.is_open()) {
+                string linea;
+                Recurso recurso;
+
+                while (!recursos.eof()) {
+                    getline(recursos, linea);
+                    if (recursos.eof()) {
+                        break;
+                    }
+                    recurso.setId(linea);
+
+                    getline(recursos, linea);
+                    recurso.setCantidad(stoi(linea));
+
+                    getline(recursos, linea);
+                    recurso.setTipo(linea);
+
+                    civilizaciones[i]->agregarRecurso(recurso);
+                }
+            }
+            recursos.close();
         }
     }
     archivo.close();
