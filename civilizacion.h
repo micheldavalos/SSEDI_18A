@@ -33,7 +33,7 @@ public:
     void eliminarGuerrero(int posicion);
 
     // Recurso
-    void agregarRecurso(const Recurso recurso);
+    void agregarRecurso(Recurso &recurso);
     size_t cantidadRecursos();
 
 

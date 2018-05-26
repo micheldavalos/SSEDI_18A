@@ -33,6 +33,11 @@ public:
 
     void setTipo(TipoRecurso tipo);
 
+    bool operator<(const Recurso &recurso)
+    {
+        return cantidad < recurso.cantidad;
+    }
+
 
 };
 

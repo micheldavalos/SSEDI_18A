@@ -77,3 +77,8 @@ int Civilizacion::poblacion() const
 {
     return aldeanos.longitud();
 }
+
+void Civilizacion::agregarRecurso(Recurso &recurso)
+{
+    recursos.encolar(recurso);
+}
