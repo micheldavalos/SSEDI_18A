@@ -23,6 +23,7 @@ MenuRecurso::MenuRecurso(Civilizacion *&civilizacion)
             mostrarRecurso(civilizacion);
         }
         else if (op == "3") {
+            buscar(civilizacion);
         }
         else if (op == "4") {
         }
@@ -73,4 +74,79 @@ void MenuRecurso::mostrarRecurso(Civilizacion *&civilizacion)
         cout << civilizacion->getRecurso(i);
         cout << endl;
     }
+}
+
+void MenuRecurso::buscarRecursoCantidad(Civilizacion *&civilizacion, int tipo)
+{
+    int valor;
+    Civilizacion *c = new Civilizacion;
+
+    Captura::capturar("Ingresa el valor", 0, 500, valor);
+
+    for (unsigned int i = 0; i < civilizacion->cantidadRecursos(); ++i) {
+
+        if (tipo == 0 && civilizacion->getRecurso(i).getCantidad() >= valor) {
+            c->agregarRecurso(civilizacion->getRecurso(i));
+        }
+        else if (tipo == 1 && civilizacion->getRecurso(i).getCantidad() < valor) {
+            c->agregarRecurso(civilizacion->getRecurso(i));
+        }
+    }
+
+    mostrarRecurso(c);
+
+    delete c;
+}
+
+void MenuRecurso::buscar(Civilizacion *&civilizacion)
+{
+    string op;
+
+    while (true) {
+        cout << "1) Catidad >=" << endl;
+        cout << "2) Cantidad <" << endl;
+        cout << "3) Tipo >=" << endl;
+        cout << "0) Salir" << endl;
+
+        getline(cin, op);
+
+        if (op == "1") {
+            buscarRecursoCantidad(civilizacion);
+        }
+        else if (op == "2") {
+            buscarRecursoCantidad(civilizacion, 1);
+        }
+        else if (op == "3") {
+            buscarRecursoTipo(civilizacion);
+        }
+        else if (op == "0") {
+            break;
+        }
+    }
+}
+
+void MenuRecurso::buscarRecursoTipo(Civilizacion *&civilizacion)
+{
+    Civilizacion *c = new Civilizacion;
+    int tipo;
+
+    string msg = "Tipo de Recurso \n "
+                 "1) Oro" "\n "
+                 "2) Madera" "\n "
+                 "3) Piedra" "\n "
+                 "4) Comida " "\n";
+    Captura::capturar(msg, 1, 4, tipo);
+
+    for (unsigned int i = 0; i < civilizacion->cantidadRecursos(); ++i) {
+
+        if (civilizacion->getRecurso(i).getTipo() == tipo) {
+            c->agregarRecurso(civilizacion->getRecurso(i));
+        }
+    }
+
+    mostrarRecurso(c);
+
+    delete c;
+
+
 }

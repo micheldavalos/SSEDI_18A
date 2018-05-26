@@ -35,6 +35,8 @@ public:
 
     string getTipoString();
 
+    int getTipo();
+
     void setTipo(RecursoTipo tipo);
 
     void setTipo(int tipo);
