@@ -6,16 +6,17 @@
 #define SSEDI_18A_RECURSO_H
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-enum class TipoRecurso {ORO, MADERA, PIEDRA, COMIDA};
+enum class RecursoTipo {ORO, MADERA, PIEDRA, COMIDA};
 
 class Recurso {
 
 private:
     string id;
     size_t cantidad;
-    TipoRecurso tipo;
+    RecursoTipo tipo;
 
 public:
 
@@ -29,9 +30,9 @@ public:
 
     void setCantidad(size_t cantidad);
 
-    TipoRecurso getTipo() const;
+    RecursoTipo getTipo() const;
 
-    void setTipo(TipoRecurso tipo);
+    void setTipo(RecursoTipo tipo);
 
     void setTipo(int tipo);
 
@@ -41,6 +42,29 @@ public:
         return cantidad < recurso.cantidad;
     }
 
+    friend ostream& operator <<(ostream &o, const Recurso &g)
+    {
+        o << setw(5) << g.getId() <<
+          setw(5) << g.getCantidad();
+
+        o <<  setw(10) << right;
+        RecursoTipo tipo = g.getTipo();
+        
+        if (tipo == RecursoTipo::ORO) {
+            o <<  "Oro";
+        }
+        else if (tipo == RecursoTipo::MADERA) {
+            o << "Madera";
+        }
+        else if (tipo == RecursoTipo::PIEDRA) {
+            o << "Piedra";
+        }
+        else if (tipo == RecursoTipo::COMIDA) {
+            o << "Comida";
+        }
+
+        return o;
+    }
 
 };
 

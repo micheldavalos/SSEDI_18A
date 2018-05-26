@@ -53,22 +53,22 @@ void MenuRecurso::agregarRecurso(Civilizacion *&civilizacion)
                  "1) Oro" "\n "
                  "2) Madera" "\n "
                  "3) Piedra" "\n "
-                 "4) Comida "\n"
+                 "4) Comida " "\n"
                  "(1 - 4): ";
     Captura::capturar(msg, 1, 4, tipo);
+    recurso.setTipo(tipo);
 
-
-
+    civilizacion->agregarRecurso(recurso);
 
 }
 
-void MenuRecurso::mostrarRecurso(Civilizacion *&civlizacion)
+void MenuRecurso::mostrarRecurso(Civilizacion *&civilizacion)
 {
     cout << setw(5) << "ID|" <<
-         setw(10) << "Catidad|" <<
+         setw(5) << "Catidad|" <<
          setw(10) << "Tipo|";
-//    for (int i = 0; i < civlizacion.; ++i) {
-//        cout << civilizacion->getGuerrero(i);
-//        cout << endl;
-//    }
+    for (int i = 0; i < civilizacion->cantidadRecursos(); ++i) {
+        cout << civilizacion->getRecurso(i);
+        cout << endl;
+    }
 }

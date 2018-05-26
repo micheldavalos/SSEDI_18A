@@ -93,3 +93,8 @@ size_t Civilizacion::cantidadRecursos() {
     return cont;
 
 }
+
+Recurso &Civilizacion::getRecurso(int posicion)
+{
+    return recursos[posicion];
+}

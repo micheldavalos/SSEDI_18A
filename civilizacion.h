@@ -35,6 +35,7 @@ public:
     // Recurso
     void agregarRecurso(Recurso &recurso);
     size_t cantidadRecursos();
+    Recurso &getRecurso(int posicion);
 
 
     Aldeano &operator[](int posicion)const;

@@ -15,7 +15,7 @@ public:
 
     void agregarRecurso(Civilizacion* &civilizacion);
 
-    void mostrarRecurso(Civilizacion *&civlizacion);
+    void mostrarRecurso(Civilizacion *&civilizacion);
 };
 
 

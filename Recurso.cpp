@@ -25,26 +25,26 @@ void Recurso::setCantidad(size_t cantidad) {
     Recurso::cantidad = cantidad;
 }
 
-TipoRecurso Recurso::getTipo() const {
+RecursoTipo Recurso::getTipo() const {
     return tipo;
 }
 
-void Recurso::setTipo(TipoRecurso tipo) {
+void Recurso::setTipo(RecursoTipo tipo) {
     Recurso::tipo = tipo;
 }
 
 void Recurso::setTipo(int tipo)
 {
     if (tipo == 1) {
-        Recurso::tipo = TipoRecurso::ORO;
+        Recurso::tipo = RecursoTipo::ORO;
     }
     else if (tipo == 2) {
-        Recurso::tipo = TipoRecurso::MADERA;
+        Recurso::tipo = RecursoTipo::MADERA;
     }
     else if (tipo == 3) {
-        Recurso::tipo = TipoRecurso::PIEDRA;
+        Recurso::tipo = RecursoTipo::PIEDRA;
     }
     else if (tipo == 4) {
-        Recurso::tipo = TipoRecurso::COMIDA;
+        Recurso::tipo = RecursoTipo::COMIDA;
     }
 }
