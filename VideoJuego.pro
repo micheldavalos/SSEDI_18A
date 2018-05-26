@@ -9,7 +9,9 @@ SOURCES += main.cpp \
     menualdeanos.cpp \
     menucivilizacion.cpp \
     guerrero.cpp \
-    menuguerreros.cpp
+    menuguerreros.cpp \
+    Recurso.cpp \
+    MenuRecurso.cpp
 
 HEADERS += \
     aldeano.h \
@@ -20,4 +22,7 @@ HEADERS += \
     menucivilizacion.h \
     guerrero.h \
     listadoble.h \
-    menuguerreros.h
+    menuguerreros.h \
+    Recurso.h \
+    MenuRecurso.h \
+    colaprioridad.h
