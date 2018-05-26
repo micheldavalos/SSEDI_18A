@@ -199,3 +199,53 @@ Agregar a los métodos de respaldar y recuperar, para que también guarde/recupe
 
 [8]: Definir los tipos de guerrero (mínimo 4 tipos). Pueden estar definidos en la opción del menú, usando un  [enumerador](http://en.cppreference.com/w/cpp/language/enum) o cuando se pida el tipo por la consola.
 
+
+## Actividad 05 _(Cola de Prioridad)_
+
+Implementar la clase Recurso, la cual tendrá los siguientes atributos [9]:
+
+ * Id
+ * Cantidad
+ * Tipo de Recurso (oro, madera, piedra, comida, etc) [10]
+
+Agregar a la clase Civilización un objeto de la clase Cola de Prioridad de tipo Recurso [11] así como un método para agregar un Recurso al objeto de la clase Cola de Prioridad.
+
+```c++
+#include "colaprioridad.h"
+#include "recurso.h"
+
+class Civilizacion
+{
+private:
+    ...
+    ColaPrioridad<Recurso> recursos;
+public:
+    Recurso();
+    ...
+    void agregarRecurso(const Recurso &r)
+    {
+        recursos.encolar(r);
+    }
+};
+ ```
+ 
+ Agregar al Menú de Civilización (Actividad 02) las siguientes opciones:
+ 
+ 1. Agregar Recurso.
+ 2. Mostrar todos los Recursos. 
+ 3. Buscar Recursos por:
+  * Cantidad mayor igual que y menor que el campo de búsqueda.
+  * Tipo de Recurso.
+  
+ 4. Modificar recurso (pedir el id del recurso y mostrar un menú para modificar el atributo cantidad; si la cantidad es igual a 0, eliminar de la cola de prioridad ese recurso).
+ 
+ Agregar al método _(Mostrar Civilizaciones)_ para que aparte de mostrar en pantalla el nombre de la civilización, su población de aldeanos y guerreros, también muestre la cantidad de recursos totales.
+
+Agregar a los métodos de respaldar y recuperar, para que también guarde/recupere los recursos.
+
+[9]: Implementar sus métodos de acceso (getters/setter).
+
+[10]: Definir los tipos de recursos (mínimo 4 tipos). Pueden estar definidos en la opción del menú,  usando un  [enumerador](http://en.cppreference.com/w/cpp/language/enum) o cuando se pida el tipo por la consola.
+
+[11]: ColaPrioridad<Recurso>.
+
