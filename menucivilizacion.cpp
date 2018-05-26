@@ -264,12 +264,13 @@ string MenuCivilizacion::coordenada(Civilizacion *&civilizacion)
 
 void MenuCivilizacion::mostrarMapa()
 {
+
     for (int i = 0; i < mapa.sizeFila(); i++) {
         for (int j = 0; j < mapa.sizeColumna(); ++j) {
             if (mapa[i][j] != nullptr) {
-                cout << coordenada(mapa[i][j]) << "\t";
+                cout <<  setw(7) << coordenada(mapa[i][j]);
             } else {
-                cout << "*" << "\t";
+                cout <<  setw(7) << "*";
             }
         }
         cout << endl;
