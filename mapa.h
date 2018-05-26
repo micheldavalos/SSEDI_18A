@@ -11,6 +11,7 @@ class Mapa
     vector< vector<T> > *matriz;
     int _filas;
     int _columnas;
+
 public:
     Mapa();
     Mapa(int filas, int columnas);
@@ -20,6 +21,9 @@ public:
     vector<T> &operator[](int posicion);
 
     vector< vector<T> > &getMatriz();
+
+    int sizeFila();
+    int sizeColumna();
 };
 template <class T>
 Mapa<T>::Mapa()
@@ -65,4 +69,15 @@ vector<vector<T> > &Mapa<T>::getMatriz()
 {
     return *matriz;
 }
+
+template<class T>
+int Mapa<T>::sizeFila() {
+    return _filas;
+}
+
+template<class T>
+int Mapa<T>::sizeColumna() {
+    return _columnas;
+}
+
 #endif // MAPA_H

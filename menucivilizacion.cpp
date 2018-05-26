@@ -16,7 +16,15 @@ void MenuCivilizacion::agregarCivilizacion()
 
     c->setNombre(nombre);
 
+    int fila;
+    Captura::capturar("Fila", 0, mapa.sizeFila(), fila);
+
+    int columna;
+    Captura::capturar("Columna", 0, mapa.sizeColumna(), columna);
+
+
     civilizaciones.inserar_inicio(c);
+    mapa[fila][columna] = c;
 }
 
 void MenuCivilizacion::mostrar()

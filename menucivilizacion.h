@@ -5,10 +5,12 @@
 #include "menuguerreros.h"
 #include "MenuRecurso.h"
 #include "lista.h"
+#include "mapa.h"
 
 class MenuCivilizacion
 {
     Lista<Civilizacion*> civilizaciones;
+    Mapa<Civilizacion*> mapa;
 public:
     MenuCivilizacion();
     void agregarCivilizacion();
