@@ -5,6 +5,8 @@
 #include "listadoble.h"
 #include "aldeano.h"
 #include "guerrero.h"
+#include "Recurso.h"
+#include "colaprioridad.h"
 
 class Civilizacion
 {
@@ -13,6 +15,7 @@ private:
 
     Arreglo<Aldeano> aldeanos;
     ListaDoble<Guerrero> guerreros;
+    ColaPrioridad<Recurso> recursos;
 
     int buscarAldeano(const string &nombre);
 public:
@@ -28,6 +31,14 @@ public:
     unsigned int poblacionGuerreros() const;
     Guerrero& getGuerrero(int posicion) const;
     void eliminarGuerrero(int posicion);
+
+    // Recurso
+    void agregarRecurso(Recurso &recurso);
+    size_t recursosTotales();
+    unsigned int cantidadRecursos();
+    Recurso &getRecurso(int posicion);
+    void eliminar(int posicion);
+
 
     Aldeano &operator[](int posicion)const;
 };

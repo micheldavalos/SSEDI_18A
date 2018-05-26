@@ -77,3 +77,34 @@ int Civilizacion::poblacion() const
 {
     return aldeanos.longitud();
 }
+
+void Civilizacion::agregarRecurso(Recurso &recurso)
+{
+    recursos.encolar(recurso);
+}
+
+size_t Civilizacion::recursosTotales() {
+    size_t cont = 0;
+
+    for (unsigned int i = 0; i < recursos.size(); ++i) {
+        cont += recursos[i].getCantidad();
+    }
+
+    return cont;
+
+}
+
+Recurso &Civilizacion::getRecurso(int posicion)
+{
+    return recursos[posicion];
+}
+
+unsigned int Civilizacion::cantidadRecursos()
+{
+    return recursos.size();
+}
+
+void Civilizacion::eliminar(int posicion)
+{
+    recursos.eliminar(posicion);
+}

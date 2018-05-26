@@ -41,6 +41,7 @@ void MenuCivilizacion::buscar()
             do {
                 cout << "1) Aldeanos" << endl
                      << "2) Guerreros" << endl
+                     << "3) Recursos" << endl
                      << "0) Salir" << endl;
 
                 getline(cin, op);
@@ -50,6 +51,9 @@ void MenuCivilizacion::buscar()
                 }
                 else if (op == "2"){
                     MenuGuerreros m(civilizaciones[i]);
+                }
+                else if (op == "3") {
+                    MenuRecurso m(civilizaciones[i]);
                 }
 
             } while (op != "0");
@@ -148,6 +152,29 @@ void MenuCivilizacion::recuperar()
                 }
             }
             guerreros.close();
+
+            ifstream recursos(civilizaciones[i]->getNombre() + "_recursos.txt", ios::in);
+            if (recursos.is_open()) {
+                string linea;
+                Recurso recurso;
+
+                while (!recursos.eof()) {
+                    getline(recursos, linea);
+                    if (recursos.eof()) {
+                        break;
+                    }
+                    recurso.setId(linea);
+
+                    getline(recursos, linea);
+                    recurso.setCantidad(stoi(linea));
+
+                    getline(recursos, linea);
+                    recurso.setTipo(linea);
+
+                    civilizaciones[i]->agregarRecurso(recurso);
+                }
+            }
+            recursos.close();
         }
     }
     archivo.close();
@@ -191,6 +218,18 @@ void MenuCivilizacion::respaldar()
                 }
             }
             guerreros.close();
+
+            ofstream recursos(civilizaciones[i]->getNombre() + "_recursos.txt", ios::out);
+            if (recursos.is_open()) {
+                for (int j = 0; j < civilizaciones[i]->cantidadRecursos(); ++j) {
+                    Recurso &recurso = civilizaciones[i]->getRecurso(j);
+                    recursos << recurso.getId() << endl;
+                    recursos << recurso.getCantidad() << endl;
+                    recursos << recurso.getTipoString() << endl;
+                }
+            }
+            recursos.close();
+
         }
     }
     archivo.close();
