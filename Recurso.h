@@ -27,7 +27,7 @@ public:
 
     void setId(const string &id);
 
-    size_t getCantidad() const;
+    size_t getCantidad() const ;
 
     void setCantidad(size_t cantidad);
 
