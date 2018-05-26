@@ -16,6 +16,7 @@ int main()
         cout << "4) Mostrar Civilizaciones" << endl;
         cout << "5) Respaldar" << endl;
         cout << "6) Recuperar" << endl;
+        cout << "7) Mostrar Mapa" << endl;
         cout << "0) Salir" << endl;
 
         getline(cin, op);
@@ -37,6 +38,9 @@ int main()
         }
         else if (op == "6") {
             m.recuperar();
+        }
+        else if (op == "7") {
+            m.mostrarMapa();
         }
         else if (op == "0") {
             break;

@@ -17,11 +17,13 @@ void MenuCivilizacion::agregarCivilizacion()
     c->setNombre(nombre);
 
     int fila;
-    Captura::capturar("Fila", 0, mapa.sizeFila(), fila);
+    Captura::capturar("Fila", 0, mapa.sizeFila() - 1, fila);
 
     int columna;
-    Captura::capturar("Columna", 0, mapa.sizeColumna(), columna);
+    Captura::capturar("Columna", 0, mapa.sizeColumna() - 1, columna);
 
+    c->setFila(fila);
+    c->setColumna(columna);
 
     civilizaciones.inserar_inicio(c);
     mapa[fila][columna] = c;
@@ -30,9 +32,11 @@ void MenuCivilizacion::agregarCivilizacion()
 void MenuCivilizacion::mostrar()
 {
     for (int i = 0; i < civilizaciones.tamano(); ++i) {
-        cout << "Civilizacion: " << civilizaciones[i]->getNombre() << endl;
+        cout << "Civilizacion: " << civilizaciones[i]->getNombre() << coordenada(civilizaciones[i]) << endl;
         cout << "Aldeanos:     " << civilizaciones[i]->poblacion() << endl;
-        cout << "Guerreros:    " << civilizaciones[i]->poblacionGuerreros() << endl << endl;
+        cout << "Guerreros:    " << civilizaciones[i]->poblacionGuerreros() << endl;
+        cout << "Recursos:     " << civilizaciones[i]->recursosTotales() << endl;
+        cout << endl;
     }
 }
 
@@ -101,7 +105,15 @@ void MenuCivilizacion::recuperar()
             Civilizacion *civ = new Civilizacion();
             civ->setNombre(linea);
 
+            getline(archivo, linea);
+            civ->setFila(stoi(linea));
+
+            getline(archivo, linea);
+            civ->setColumna(stoi(linea));
+
             civilizaciones.inserar_inicio(civ);
+
+            mapa[civ->getFila()][civ->getColumna()] = civ;
         }
 
         for (int i = 0; i < civilizaciones.tamano(); ++i) {
@@ -196,6 +208,8 @@ void MenuCivilizacion::respaldar()
     if (archivo.is_open()) {
         for (int i = 0; i < civilizaciones.tamano(); i++) {
             archivo << civilizaciones[i]->getNombre() << endl;
+            archivo << civilizaciones[i]->getFila() << endl;
+            archivo << civilizaciones[i]->getColumna() << endl;
 
             ofstream aldeanos(civilizaciones[i]->getNombre() + "_aldeanos.txt", ios::out);
             if (aldeanos.is_open()) {
@@ -241,4 +255,25 @@ void MenuCivilizacion::respaldar()
         }
     }
     archivo.close();
+}
+
+string MenuCivilizacion::coordenada(Civilizacion *&civilizacion)
+{
+    return string("(" + to_string(civilizacion->getFila()) + ", " + to_string(civilizacion->getColumna()) + ")");
+}
+
+void MenuCivilizacion::mostrarMapa()
+{
+    for (int i = 0; i < mapa.sizeFila(); i++) {
+        for (int j = 0; j < mapa.sizeColumna(); ++j) {
+            if (mapa[i][j] != nullptr) {
+                cout << coordenada(mapa[i][j]) << "\t";
+            } else {
+                cout << "*" << "\t";
+            }
+        }
+        cout << endl;
+    }
+    cout << endl;
+
 }

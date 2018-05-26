@@ -11,6 +11,8 @@ class MenuCivilizacion
 {
     Lista<Civilizacion*> civilizaciones;
     Mapa<Civilizacion*> mapa;
+
+    string coordenada(Civilizacion *&civilizacion);
 public:
     MenuCivilizacion();
     void agregarCivilizacion();
@@ -19,6 +21,7 @@ public:
     void eliminar();
     void recuperar();
     void respaldar();
+    void mostrarMapa();
 };
 
 #endif // MENUCIVILIZACION_H

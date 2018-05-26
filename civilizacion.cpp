@@ -108,3 +108,23 @@ void Civilizacion::eliminar(int posicion)
 {
     recursos.eliminar(posicion);
 }
+
+int Civilizacion::getFila() const
+{
+    return fila;
+}
+
+void Civilizacion::setFila(int fila)
+{
+    Civilizacion::fila = fila;
+}
+
+int Civilizacion::getColumna() const
+{
+    return columna;
+}
+
+void Civilizacion::setColumna(int columna)
+{
+    Civilizacion::columna = columna;
+}

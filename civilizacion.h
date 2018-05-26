@@ -17,6 +17,20 @@ private:
     ListaDoble<Guerrero> guerreros;
     ColaPrioridad<Recurso> recursos;
 
+
+    int fila;
+    int columna;
+public:
+    int getFila() const;
+
+    void setFila(int fila);
+
+    int getColumna() const;
+
+    void setColumna(int columna);
+
+private:
+
     int buscarAldeano(const string &nombre);
 public:
     Civilizacion();
