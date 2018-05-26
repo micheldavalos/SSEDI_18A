@@ -6,6 +6,7 @@
 #define SSEDI_18A_MENURECURSO_H
 
 #include "civilizacion.h"
+#include "Captura.h"
 
 class MenuRecurso {
 

@@ -32,3 +32,19 @@ TipoRecurso Recurso::getTipo() const {
 void Recurso::setTipo(TipoRecurso tipo) {
     Recurso::tipo = tipo;
 }
+
+void Recurso::setTipo(int tipo)
+{
+    if (tipo == 1) {
+        Recurso::tipo = TipoRecurso::ORO;
+    }
+    else if (tipo == 2) {
+        Recurso::tipo = TipoRecurso::MADERA;
+    }
+    else if (tipo == 3) {
+        Recurso::tipo = TipoRecurso::PIEDRA;
+    }
+    else if (tipo == 4) {
+        Recurso::tipo = TipoRecurso::COMIDA;
+    }
+}

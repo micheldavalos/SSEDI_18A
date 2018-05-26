@@ -33,6 +33,31 @@ MenuRecurso::MenuRecurso()
 
 void MenuRecurso::agregarRecurso(Civilizacion *&civilizacion)
 {
+    Recurso recurso;
+    string temp;
+    int cantidad;
+    int tipo;
+
+    // Id
+    cout << "ID: ";
+    getline(cin, temp);
+    recurso.setId(temp);
+
+
+    // Catidad
+    Captura::capturar("Cantidad", 0, 500, cantidad);
+    recurso.setCantidad(cantidad);
+
+    // Tipo
+    string msg = "Tipo de Recurso \n "
+                 "1) Oro" "\n "
+                 "2) Madera" "\n "
+                 "3) Piedra" "\n "
+                 "4) Comida "\n"
+                 "(1 - 4): ";
+    Captura::capturar(msg, 1, 4, tipo);
+
+
 
 
 }
