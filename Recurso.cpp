@@ -49,3 +49,24 @@ void Recurso::setTipo(int tipo)
         Recurso::tipo = RecursoTipo::COMIDA;
     }
 }
+
+string Recurso::getTipoString()
+{
+    string o;
+    RecursoTipo tipo = Recurso::tipo;
+
+    if (tipo == RecursoTipo::ORO) {
+        o =  "Oro";
+    }
+    else if (tipo == RecursoTipo::MADERA) {
+        o = "Madera";
+    }
+    else if (tipo == RecursoTipo::PIEDRA) {
+        o = "Piedra";
+    }
+    else if (tipo == RecursoTipo::COMIDA) {
+        o = "Comida";
+    }
+
+    return o;
+}

@@ -33,6 +33,8 @@ public:
 
     RecursoTipo getTipo() const;
 
+    string getTipoString();
+
     void setTipo(RecursoTipo tipo);
 
     void setTipo(int tipo);

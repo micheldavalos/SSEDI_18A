@@ -195,6 +195,18 @@ void MenuCivilizacion::respaldar()
                 }
             }
             guerreros.close();
+
+            ofstream recursos(civilizaciones[i]->getNombre() + "_recursos.txt", ios::out);
+            if (recursos.is_open()) {
+                for (int j = 0; j < civilizaciones[i]->cantidadRecursos(); ++j) {
+                    Recurso &recurso = civilizaciones[i]->getRecurso(j);
+                    recursos << recurso.getId() << endl;
+                    recursos << recurso.getCantidad() << endl;
+                    recursos << recurso.getTipoString() << endl;
+                }
+            }
+            recursos.close();
+
         }
     }
     archivo.close();
