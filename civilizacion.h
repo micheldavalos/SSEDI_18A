@@ -34,7 +34,8 @@ public:
 
     // Recurso
     void agregarRecurso(Recurso &recurso);
-    size_t cantidadRecursos();
+    size_t recursosTotales();
+    unsigned int cantidadRecursos();
     Recurso &getRecurso(int posicion);
 
 

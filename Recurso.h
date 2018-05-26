@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 enum class RecursoTipo {ORO, MADERA, PIEDRA, COMIDA};
@@ -45,7 +46,7 @@ public:
     friend ostream& operator <<(ostream &o, const Recurso &g)
     {
         o << setw(5) << g.getId() <<
-          setw(5) << g.getCantidad();
+          setw(10) << g.getCantidad();
 
         o <<  setw(10) << right;
         RecursoTipo tipo = g.getTipo();

@@ -3,6 +3,7 @@
 
 #include "menualdeanos.h"
 #include "menuguerreros.h"
+#include "MenuRecurso.h"
 #include "lista.h"
 
 class MenuCivilizacion

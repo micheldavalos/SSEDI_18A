@@ -11,7 +11,7 @@
 class MenuRecurso {
 
 public:
-    MenuRecurso();
+    MenuRecurso(Civilizacion *&civilizacion);
 
     void agregarRecurso(Civilizacion* &civilizacion);
 

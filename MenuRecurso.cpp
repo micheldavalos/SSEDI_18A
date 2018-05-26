@@ -4,7 +4,7 @@
 
 #include "MenuRecurso.h"
 
-MenuRecurso::MenuRecurso()
+MenuRecurso::MenuRecurso(Civilizacion *&civilizacion)
 {
     string op;
 
@@ -17,8 +17,10 @@ MenuRecurso::MenuRecurso()
         getline(cin, op);
 
         if (op == "1") {
+            agregarRecurso(civilizacion);
         }
         else if (op == "2") {
+            mostrarRecurso(civilizacion);
         }
         else if (op == "3") {
         }
@@ -53,8 +55,7 @@ void MenuRecurso::agregarRecurso(Civilizacion *&civilizacion)
                  "1) Oro" "\n "
                  "2) Madera" "\n "
                  "3) Piedra" "\n "
-                 "4) Comida " "\n"
-                 "(1 - 4): ";
+                 "4) Comida " "\n";
     Captura::capturar(msg, 1, 4, tipo);
     recurso.setTipo(tipo);
 
@@ -65,8 +66,9 @@ void MenuRecurso::agregarRecurso(Civilizacion *&civilizacion)
 void MenuRecurso::mostrarRecurso(Civilizacion *&civilizacion)
 {
     cout << setw(5) << "ID|" <<
-         setw(5) << "Catidad|" <<
-         setw(10) << "Tipo|";
+         setw(10) << "Cantidad|" <<
+         setw(10) << "Tipo|" << endl;
+
     for (int i = 0; i < civilizacion->cantidadRecursos(); ++i) {
         cout << civilizacion->getRecurso(i);
         cout << endl;

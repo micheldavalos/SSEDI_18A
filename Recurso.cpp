@@ -3,6 +3,7 @@
 //
 
 #include "Recurso.h"
+#include "civilizacion.h"
 
 Recurso::Recurso()
 {

@@ -83,7 +83,7 @@ void Civilizacion::agregarRecurso(Recurso &recurso)
     recursos.encolar(recurso);
 }
 
-size_t Civilizacion::cantidadRecursos() {
+size_t Civilizacion::recursosTotales() {
     size_t cont = 0;
 
     for (unsigned int i = 0; i < recursos.size(); ++i) {
@@ -97,4 +97,9 @@ size_t Civilizacion::cantidadRecursos() {
 Recurso &Civilizacion::getRecurso(int posicion)
 {
     return recursos[posicion];
+}
+
+unsigned int Civilizacion::cantidadRecursos()
+{
+    return recursos.size();
 }

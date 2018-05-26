@@ -41,6 +41,7 @@ void MenuCivilizacion::buscar()
             do {
                 cout << "1) Aldeanos" << endl
                      << "2) Guerreros" << endl
+                     << "3) Recursos" << endl
                      << "0) Salir" << endl;
 
                 getline(cin, op);
@@ -50,6 +51,9 @@ void MenuCivilizacion::buscar()
                 }
                 else if (op == "2"){
                     MenuGuerreros m(civilizaciones[i]);
+                }
+                else if (op == "3") {
+                    MenuRecurso m(civilizaciones[i]);
                 }
 
             } while (op != "0");
