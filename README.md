@@ -208,7 +208,7 @@ Implementar la clase Recurso, la cual tendrá los siguientes atributos [9]:
  * Cantidad
  * Tipo de Recurso (oro, madera, piedra, comida, etc) [10]
 
-Agregar a la clase Civilización un objeto de la clase Cola de Prioridad de tipo Recurso [11] así como un método para agregar un Recurso al objeto de la clase Cola de Prioridad.
+Agregar a la clase Civilización un objeto de la clase Cola de Prioridad de tipo Recurso  así como un método para agregar un Recurso al objeto de la clase Cola de Prioridad.
 
 ```c++
 #include "colaprioridad.h"
@@ -247,5 +247,16 @@ Agregar a los métodos de respaldar y recuperar, para que también guarde/recupe
 
 [10]: Definir los tipos de recursos (mínimo 4 tipos). Pueden estar definidos en la opción del menú,  usando un  [enumerador](http://en.cppreference.com/w/cpp/language/enum) o cuando se pida el tipo por la consola.
 
-[11]: ColaPrioridad<Recurso>.
+## Actividad 06 _(Matriz Dinámica)_
 
+Usar la clase Mapa implementada en clase para posicionar una civilización en una coordenada (fila,columna).
+
+Agregar a la clase civilización los atributos fila y columna. Con lo anterior, cada vez que se cree una nueva civilización, hay que preguntar al usuario la coordenada (fila y la columna) en la que será posicionada la civilización y agregarla al mapa en tal coordenada.
+
+El Mapa será de tipo puntero de Civilización: Mapa<Civilizacion*>. Por lo tanto, cada vez que se cree una nueva civilización, se deberá guardar ese puntero (dirección de memoria) tanto en la lista ligada como en el mapa.
+
+Agregar la opción "Mostrar Mapa", la cual mostrará de manera matricial el Mapa como se muestra en la figura:
+
+![](mapa.png)
+
+Agregar a los métodos de respaldar y recuperar, para que también guarde/recupere las coordenadas como parte de las civilizaciones.
